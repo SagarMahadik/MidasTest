@@ -60,7 +60,7 @@ body{
         margin-bottom:10px;
     }
     /*adding effect when the mouse is hovered over list item*/
-    .searchbox ul li a:hover{
+    .ul li a:hover{
         color:#b23b61;
         background:#ecd1da;
     }
