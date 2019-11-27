@@ -7,27 +7,39 @@ export default class DisplaySuggestions extends Component {
         selectedText :''
     }
 
+
     onClick = (e) => {
+        e.preventDefault();
         const selectedText = e.currentTarget.innerText ;
-        this.setState({selectedText});
-        //console.log(this.state.selectedText);
-        this.props.setSearchText(selectedText);      
-    }
+        this.setState({selectedText : selectedText},
+            this.props.setSearchText(selectedText)
+            );                     
+       }
+
+
 
     render() {
         
-        const{displaySuggestions, patientSearchResult} = this.props;
+        const{displaySuggestions, patientSearchResult, currentSuggestion} = this.props;
+                  
         if (!displaySuggestions) return null;
 
         return (
+           
+            
             <Fragment>
 
                 <ul className="suggestions">
                     {
                         patientSearchResult && 
                         patientSearchResult.map((item,index)=>{
+                         
                             return(
-                                <li key={index} onClick={this.onClick} >
+                                
+                                <li key={index}
+                                className={ currentSuggestion === index? 'active' :null}  
+                                onClick={this.onClick}
+                                >
                                     <a>
                                     {item.name}
                                     </a>

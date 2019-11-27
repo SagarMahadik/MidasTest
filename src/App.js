@@ -16,7 +16,7 @@ class App extends React.Component {
         <Route exact path ="/" component = { Login}/>
         <Route exact path = "/patientForm" component ={PatientForm} />
         <Route exact path ="/doctorSearch" component = {SearchPage} />
-        <Route path ="/doctorDashboard" component = { DashBoard}/>
+        <Route path ="/doctorDashboard/:id" component = { DashBoard}/>
       </Router>
   
     );
